@@ -28,7 +28,7 @@ torchvision.datasets.SVHN(root=dataPath,
                           target_transform=None, 
                           download=True);
 
-torchvision.datasets.SVHN(root=dataPath',
+torchvision.datasets.SVHN(root=dataPath,
                           split='test', 
                           transform=None, 
                           target_transform=None, 
