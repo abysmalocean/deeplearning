@@ -42,6 +42,7 @@ num_epochs = parmeters['num_epochs']
 num_classes = parmeters['num_classes']
 learning_rate = parmeters['learning_rate']
 
+modelSavedPath = dataPath
 
 data_transform = transforms.Compose([
     transforms.Resize(256),
@@ -126,8 +127,8 @@ optimizer = torch.optim.Adam(model.parameters(), lr=learning_rate)
 # Train the model
 total_step = len(train_loader)
 for epoch in range(num_epochs):
-    
-    for i, (images, labels) in enumerate(train_loader):
+    t = tqdm(iter(train_loader), leave=False, total=len(train_loader))
+    for i, (images, labels) in enumerate(t):
         #print(images.size())
         images = images.to(device)
         labels = labels.to(device)
@@ -144,3 +145,5 @@ for epoch in range(num_epochs):
         if (i+1) % 100 == 0:
             print ('Epoch [{}/{}], Step [{}/{}], Loss: {:.4f}' 
                    .format(epoch+1, num_epochs, i+1, total_step, loss.item()))
+
+torch.save(model.state_dict(), modelSavedPath)
