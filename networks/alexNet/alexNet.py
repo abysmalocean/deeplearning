@@ -42,7 +42,7 @@ num_epochs = parmeters['num_epochs']
 num_classes = parmeters['num_classes']
 learning_rate = parmeters['learning_rate']
 
-modelSavedPath = dataPath
+modelSavedPath = parmeters['modelSavedPath']
 
 data_transform = transforms.Compose([
     transforms.Resize(256),

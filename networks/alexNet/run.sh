@@ -1,1 +1,1 @@
-python alexNet.py -o /media/liangxu/Data/data/torchData/SVHM
+python alexNet.py -o /home/xul4/data/SVHN
